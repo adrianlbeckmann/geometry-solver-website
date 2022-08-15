@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 export const Quadrat = (props) => {
-    
     // states
 const [side, setSide] = useState(undefined);
 const [circumference, setCircumference] = useState(undefined);
@@ -85,7 +84,7 @@ const handleChangeF = (event) => {
                     </div>
                     <button onClick={onClick}>Rechnen</button>
                 </div>
-                <img src="http://dasprisma.weebly.com/uploads/2/7/0/0/27002005/7562718.png?457" alt="quadratbeispiel" height={"300px"} width={"450px"} />
+                <img src="http://dasprisma.weebly.com/uploads/2/7/0/0/27002005/7562718.png?457" alt="quadratbeispiel" height={"250px"} width={"450px"} />
             </div>            
         </div>
     )

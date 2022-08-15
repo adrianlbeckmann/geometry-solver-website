@@ -5,20 +5,55 @@ export const Rechteck = (props) => {
 const [side, setSide] = useState(undefined);
 const [circumference, setCircumference] = useState(undefined);
 const [area, setArea] = useState(undefined);
+const [side2, setSide2] = useState(undefined);
 
     // onclick
 const onClick = () => {
+    const hasA = side !== undefined && side !== '';
+    const hasB = side2 !== undefined && side2 !== '';
+    const hasU = circumference !== undefined && circumference !== '';
+    const hasArea = area !== undefined && area !== '';
+
+    if (hasA && hasB){
+        setCircumference((2*side)+(2*side2));
+        setArea(side*side2);
+    }
+    if (hasA && hasU){
+        setSide2((circumference-2*side)/2);
+        setArea(side*((circumference-2*side)/2));
+    }
+    if (hasB && hasU){
+        setSide((circumference-2*side2)/2);
+        setArea(side2*((circumference-2*side2)/2));
+    }
+    if (hasA && hasArea){
+        setSide2(area/side);
+        setCircumference((2*side)+(2*(area/side)));
+    }
+    if (hasB && hasArea){
+        setSide(area/side2);
+        setCircumference((2*side2)+(2*(area/side2)));
+    }
+    
+    console.error("a oder b angeben");
+    
+
+
+
+
+
+
     console.log({side}, {circumference}, {area})
-    if(side !== undefined && side !== ''){
+    if(hasA || hasB){
         console.log("side");
-        setCircumference(side*4);
-        setArea(side*side);
+        setCircumference((2*side)+(2*side2));
+        setArea(side*side2);
         return;
     }
 
-    if(circumference !== undefined && circumference !== ''){
+    if(circumference !== undefined && circumference !== '' && (side !== undefined || side2 !== undefined)){
         console.log("circumference");
-        setSide(circumference/4);
+        setSide((circumference/2)-side2);
         setArea((circumference/4)*(circumference/4));
         return;
     }
@@ -94,7 +129,7 @@ const handleChangeF = (event) => {
                         </div>
                         <button onClick={onClick}>Rechnen</button>
                     </div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm3W4kmSRHngLoMx5Tc9mRwuBV7heGa10N4g&usqp=CAU" alt="rechteckbeispiel" height={"300px"} width={"450px"} />
+                    <img src="https://mathekarten.vobs.at/fileadmin/template/bilder/merktexte/06geometrie2/beschriftung.PNG" alt="rechteckbeispiel" height={"300px"} width={"450px"} />
                 </div>            
             </div>
         

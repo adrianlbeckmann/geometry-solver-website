@@ -1,42 +1,42 @@
 import { useState } from "react"
 
-export const Kugel = (props) => {
+export const Wuerfel = (props) => {
     
     // states
-const [radius, setRadius] = useState(undefined);
+const [side, setSide] = useState(undefined);
 const [surface, setSurface] = useState(undefined);
 const [volume, setVolume] = useState(undefined);
 
     // onclick
 const onClick = () => {
-    console.log({radius}, {surface}, {volume})
-    if(radius !== undefined && radius !== ''){
-        setSurface(4*Math.PI*(radius*radius));
-        setVolume((4/3)*Math.PI*(radius*radius*radius));
+    console.log({side}, {surface}, {volume})
+    if(side !== undefined && side !== ''){
+        console.log("side");
+        setSurface((side*side)*6);
+        setVolume(side*side*side);
         return;
     }
 
     if(surface !== undefined && surface !== ''){
         console.log("surface");
-        const r = Math.sqrt(surface/(4*Math.PI))
-        setRadius(r);
-        setVolume((4/3)*Math.PI*(r*r*r));
+        setSide((surface/6)/2);
+        setVolume(((surface/4)/2)*((surface/4)/2)*((surface/4)/2));
         return;
     }
 
     if(volume !== undefined && volume !== ''){
-        const r = Math.cbrt(volume/((4/3)*Math.PI))
-    
-        setRadius(r);
-        setSurface((4*Math.PI)*(r*r));
+        console.log("volume");
+        const s = Math.cbrt(volume);
+        setSide(s);
+        setSurface((s*s)*6);
         return;
     }
 }
 
 
-const handleChangeR = (event) => {
+const handleChangeA = (event) => {
     console.log(event.target.value)
-    setRadius(event.target.value)
+    setSide(event.target.value)
 }
 
 const handleChangeS = (event) => {
@@ -52,40 +52,40 @@ const handleChangeV = (event) => {
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <button onClick={() => props.navigate("main")}> Home </button>
                 <div style={{ display: "flex" }}>
-                    <img src="https://vorlagen-zum-ausdrucken.de/wp-content/uploads/2019/09/Kreis.jpg" alt="kreis" height={"50px"} width={"40px"} />
-                    <p style={{}}>2D</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Simpele_kubus.svg/1200px-Simpele_kubus.svg.png" alt="würfel" height={"50px"} width={"70px"} />
+                    <p style={{}}>3D</p>
                 </div>
             </div>
 
             <div style={{ display: "flex" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                     <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqr">r = </label>
+                        <label htmlFor="nrinputqa">a = </label>
                         <input 
-                        id="nrinputqr" 
+                        id="nrinputqa" 
                         type="number" 
-                        onChange={handleChangeR}
-                        value={radius}/>
+                        onChange={handleChangeA}
+                        value={side}/>
                     </div>
                     <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqu">U = </label>
+                        <label htmlFor="nrinputqm">U = </label>
                         <input 
-                        id="nrinputqu" 
+                        id="nrinputqm" 
                         type="number" 
                         onChange={handleChangeS}
                         value={surface}/>
                     </div>
                     <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqf">A = </label>
+                        <label htmlFor="nrinputqv">A = </label>
                         <input 
-                        id="nrinputqf" 
+                        id="nrinputqv" 
                         type="number" 
                         onChange={handleChangeV}
                         value={volume}/>
                     </div>
                     <button onClick={onClick}>Rechnen</button>
                 </div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbAZAljcnxOsiZRWmFnsiVRyYdSlioNoZF63kD8rS0pMdGOahNzyAU-F2uCq8qdsfztnI&usqp=CAU" alt="kreisbeispiel" height={"300px"} width={"300px"} />
+                <img src="https://www.mathespass.at/klasse1/bilder/wuerfel.jpg" alt="würfelbeispiel" height={"300px"} width={"300px"} />
             </div>            
         </div>
     )

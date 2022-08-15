@@ -1,53 +1,27 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Main } from "./pages/main";
 import { Quadrat } from "./pages/quadrat";
 import { Rechteck } from "./pages/rechteck";
 import { Kreis } from "./pages/kreis";
 import { Dreieck } from "./pages/dreieck";
-import { Würfel } from "./pages/würfel";
+import { Wuerfel } from "./pages/wuerfel";
 import { Quader } from "./pages/quader";
 import { Kugel } from "./pages/kugel";
 import { Pyramide } from "./pages/pyramide";
 
-function App() {
-  const [page, setPage] = useState("main"); 
-  if (page === "main") {
-    return (<Main navigate={setPage} />)
+export const App = () => {
+  const [page, setPage] = useState("main");
+
+  switch (page) {
+    case "main": return <Main navigate={setPage} />;
+    case "quadrat":  return <Quadrat navigate={setPage} />;
+    case "rechteck": return <Rechteck navigate={setPage} />;
+    case "kreis": return <Kreis navigate={setPage} />;
+    case "dreieck": return <Dreieck navigate={setPage} />;
+    case "wuerfel": return <Wuerfel navigate={setPage} />;
+    case "quader": return <Quader navigate={setPage} />;
+    case "kugel": return <Kugel navigate={setPage} />;
+    case "pyramide": return <Pyramide navigate={setPage} />;
+    default: return null;
   }
-
-if (page === "quadrat") {
-  return( <Quadrat navigate={setPage}/>) 
 }
-
-if (page === "rechteck") {
-  return( <Rechteck navigate={setPage}/>)
-}
-
-if (page === "kreis") {
-  return( <Kreis navigate={setPage}/>)
-}
-
-if (page === "dreieck") {
-  return( <Dreieck navigate={setPage}/>)
-}
-
-if (page === "würfel") {
-  return( <Würfel navigate={setPage}/>)
-}
-
-if (page === "quader") {
-  return( <Quader navigate={setPage}/>)
-}
-
-if (page === "kugel") {
-  return( <Kugel navigate={setPage}/>)
-}
-
-if (page === "pyramide") {
-  return( <Pyramide navigate={setPage}/>)
-}
-
-  return null;
-}
-
-export default App;
