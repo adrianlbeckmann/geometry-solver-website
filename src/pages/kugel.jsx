@@ -52,7 +52,7 @@ const handleChangeV = (event) => {
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <button onClick={() => props.navigate("main")}> Home </button>
                 <div style={{ display: "flex" }}>
-                    <img src="https://vorlagen-zum-ausdrucken.de/wp-content/uploads/2019/09/Kreis.jpg" alt="kreis" height={"50px"} width={"40px"} />
+                    <img src="https://www.mathespass.at/klasse4/bilder/kugel.jpg" alt="kugel" height={"50px"} width={"40px"} />
                     <p style={{}}>2D</p>
                 </div>
             </div>
@@ -85,7 +85,7 @@ const handleChangeV = (event) => {
                     </div>
                     <button onClick={onClick}>Rechnen</button>
                 </div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbAZAljcnxOsiZRWmFnsiVRyYdSlioNoZF63kD8rS0pMdGOahNzyAU-F2uCq8qdsfztnI&usqp=CAU" alt="kreisbeispiel" height={"300px"} width={"300px"} />
+                <img src="https://www.online-rechner.net/assets/img/kugel.png" alt="kugelbeispiel" height={"300px"} width={"500px"} />
             </div>            
         </div>
     )

@@ -1,50 +1,59 @@
 import { useState } from "react"
+import Inputfieldlist from '../components/Inputfieldlist';
+
 
 export const Quadrat = (props) => {
     // states
-const [side, setSide] = useState(undefined);
-const [circumference, setCircumference] = useState(undefined);
-const [area, setArea] = useState(undefined);
+    const [side, setSide] = useState(undefined);
+    const [circumference, setCircumference] = useState(undefined);
+    const [area, setArea] = useState(undefined);
+
 
     // onclick
-const onClick = () => {
-    console.log({side}, {circumference}, {area})
-    if(side !== undefined && side !== ''){
-        console.log("side");
-        setCircumference(side*4);
-        setArea(side*side);
-        return;
+    const onClick = () => {
+        console.log({ side }, { circumference }, { area })
+        if (side !== undefined && side !== '') {
+            console.log("side");
+            setCircumference(side * 4);
+            setArea(side * side);
+            return;
+        }
+
+        if (circumference !== undefined && circumference !== '') {
+            console.log("circumference");
+            setSide(circumference / 4);
+            setArea((circumference / 4) * (circumference / 4));
+            return;
+        }
+
+        if (area !== undefined && area !== '') {
+            console.log("area");
+            const s = Math.sqrt(area);
+            setSide(s);
+            setCircumference(s * 4);
+            return;
+        }
     }
 
-    if(circumference !== undefined && circumference !== ''){
-        console.log("circumference");
-        setSide(circumference/4);
-        setArea((circumference/4)*(circumference/4));
-        return;
+
+    const handleChangeA = (event) => {
+        console.log(event.target.value)
+        setSide(event.target.value)
     }
 
-    if(area !== undefined && area !== ''){
-        console.log("area");
-        const s = Math.sqrt(area);
-        setSide(s);
-        setCircumference(s*4);
-        return;
+    const handleChangeU = (event) => {
+        setCircumference(event.target.value)
     }
-}
 
+    const handleChangeF = (event) => {
+        setArea(event.target.value)
+    }
 
-const handleChangeA = (event) => {
-    console.log(event.target.value)
-    setSide(event.target.value)
-}
-
-const handleChangeU = (event) => {
-    setCircumference(event.target.value)
-}
-
-const handleChangeF = (event) => {
-    setArea(event.target.value)
-}
+    const quadratInputfields = [
+        { key: "quadratInputfields-0", id: "nrinputqa", onChange: handleChangeA, value: side, placeholder: "", type: "number", label: "a = " },
+        { key: "quadratInputfields-0", id: "nrinputqu", onChange: handleChangeU, value: circumference, placeholder: "", type: "number", label: "U = " },
+        { key: "quadratInputfields-0", id: "nrinputqf", onChange: handleChangeF, value: area, placeholder: "", type: "number", label: "A = " },
+    ]
 
     return (
         <div>
@@ -58,34 +67,12 @@ const handleChangeF = (event) => {
 
             <div style={{ display: "flex" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqa">a = </label>
-                        <input 
-                        id="nrinputqa" 
-                        type="number" 
-                        onChange={handleChangeA}
-                        value={side}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqu">U = </label>
-                        <input 
-                        id="nrinputqu" 
-                        type="number" 
-                        onChange={handleChangeU}
-                        value={circumference}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqf">A = </label>
-                        <input 
-                        id="nrinputqf" 
-                        type="number" 
-                        onChange={handleChangeF}
-                        value={area}/>
-                    </div>
+                    <Inputfieldlist list={quadratInputfields} />
+
                     <button onClick={onClick}>Rechnen</button>
                 </div>
                 <img src="http://dasprisma.weebly.com/uploads/2/7/0/0/27002005/7562718.png?457" alt="quadratbeispiel" height={"250px"} width={"450px"} />
-            </div>            
+            </div>
         </div>
     )
 }

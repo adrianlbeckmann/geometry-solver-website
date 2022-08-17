@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Inputfield from "../components/Inputfield";
 
 export const Kreis = (props) => {
     
@@ -57,30 +58,11 @@ const handleChangeF = (event) => {
 
             <div style={{ display: "flex" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqr">r = </label>
-                        <input 
-                        id="nrinputqr" 
-                        type="number" 
-                        onChange={handleChangeR}
-                        value={radius}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqu">U = </label>
-                        <input 
-                        id="nrinputqu" 
-                        type="number" 
-                        onChange={handleChangeU}
-                        value={circumference}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqf">A = </label>
-                        <input 
-                        id="nrinputqf" 
-                        type="number" 
-                        onChange={handleChangeF}
-                        value={area}/>
-                    </div>
+                    
+                    <Inputfield label="r = " key="quadratInputfields-0" id="nrinputqr" onChange={handleChangeR} value={radius} placeholder="" type="number"/>
+                    <Inputfield label="U = " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
+                    <Inputfield label="A = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
+                    
                     <button onClick={onClick}>Rechnen</button>
                 </div>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbAZAljcnxOsiZRWmFnsiVRyYdSlioNoZF63kD8rS0pMdGOahNzyAU-F2uCq8qdsfztnI&usqp=CAU" alt="kreisbeispiel" height={"300px"} width={"300px"} />

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Inputfield from "../components/Inputfield";
 
 export const Wuerfel = (props) => {
     
@@ -59,30 +60,12 @@ const handleChangeV = (event) => {
 
             <div style={{ display: "flex" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqa">a = </label>
-                        <input 
-                        id="nrinputqa" 
-                        type="number" 
-                        onChange={handleChangeA}
-                        value={side}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqm">U = </label>
-                        <input 
-                        id="nrinputqm" 
-                        type="number" 
-                        onChange={handleChangeS}
-                        value={surface}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqv">A = </label>
-                        <input 
-                        id="nrinputqv" 
-                        type="number" 
-                        onChange={handleChangeV}
-                        value={volume}/>
-                    </div>
+                    
+                <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
+                <Inputfield label="O = " key="quadratInputfields-0" id="nrinputqm" onChange={handleChangeS} value={surface} placeholder="" type="number"/>
+                <Inputfield label="V = " key="quadratInputfields-0" id="nrinputqv" onChange={handleChangeV} value={volume} placeholder="" type="number"/>
+
+                   
                     <button onClick={onClick}>Rechnen</button>
                 </div>
                 <img src="https://www.mathespass.at/klasse1/bilder/wuerfel.jpg" alt="würfelbeispiel" height={"300px"} width={"300px"} />

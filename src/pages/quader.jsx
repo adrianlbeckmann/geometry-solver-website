@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Inputfield from "../components/Inputfield";
 export const Quader = (props) => {
 
       // states
@@ -104,46 +105,13 @@ const handleChangeV = (event) => {
     
                 <div style={{ display: "flex" }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqa">a = </label>
-                            <input 
-                            id="nrinputqa" 
-                            type="number" 
-                            onChange={handleChangeA}
-                            value={side}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqb">b = </label>
-                            <input 
-                            id="nrinputqb" 
-                            type="number" 
-                            onChange={handleChangeB}
-                            value={side2}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqc">c = </label>
-                            <input 
-                            id="nrinputqc" 
-                            type="number" 
-                            onChange={handleChangeC}
-                            value={side3}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqu">O = </label>
-                            <input 
-                            id="nrinputqu" 
-                            type="number" 
-                            onChange={handleChangeS}
-                            value={surface}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqf">V = </label>
-                            <input 
-                            id="nrinputqf" 
-                            type="number" 
-                            onChange={handleChangeV}
-                            value={volume}/>
-                        </div>
+                        
+                    <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
+                    <Inputfield label="b = " key="quadratInputfields-0" id="nrinputqb" onChange={handleChangeB} value={side} placeholder="" type="number"/>
+                    <Inputfield label="c = " key="quadratInputfields-0" id="nrinputqc" onChange={handleChangeC} value={side} placeholder="" type="number"/>
+                    <Inputfield label="O = " key="quadratInputfields-0" id="nrinputqs" onChange={handleChangeS} value={side} placeholder="" type="number"/>
+                    <Inputfield label="V = " key="quadratInputfields-0" id="nrinputqv" onChange={handleChangeV} value={side} placeholder="" type="number"/>
+
                         <button onClick={onClick}>Rechnen</button>
                     </div>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Cuboid_abcd.svg/640px-Cuboid_abcd.svg.png" alt="quaderbeispiel" height={"300px"} width={"450px"} />

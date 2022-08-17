@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Inputfield from "../components/Inputfield";
 export const Rechteck = (props) => {
 
       // states
@@ -72,6 +73,10 @@ const handleChangeA = (event) => {
     console.log(event.target.value)
     setSide(event.target.value)
 }
+const handleChangeB = (event) => {
+    console.log(event.target.value)
+    setSide(event.target.value)
+}
 
 const handleChangeU = (event) => {
     setCircumference(event.target.value)
@@ -95,38 +100,13 @@ const handleChangeF = (event) => {
     
                 <div style={{ display: "flex" }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqa">a = </label>
-                            <input 
-                            id="nrinputqa" 
-                            type="number" 
-                            onChange={handleChangeA}
-                            value={side}/>
-                        </div>
-                        <div>
-                        <label htmlFor="nrinputqb">b = </label>
-                            <input 
-                            id="nrinputqb" 
-                            type="number" 
-                            onChange={handleChangeA}
-                            value={side}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqu">U = </label>
-                            <input 
-                            id="nrinputqu" 
-                            type="number" 
-                            onChange={handleChangeU}
-                            value={circumference}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqf">A = </label>
-                            <input 
-                            id="nrinputqf" 
-                            type="number" 
-                            onChange={handleChangeF}
-                            value={area}/>
-                        </div>
+                        
+                        <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
+                        <Inputfield label="b= " key="quadratInputfields-0" id="nrinputqb" onChange={handleChangeB} value={side2} placeholder="" type="number"/>
+                        <Inputfield label="U= " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
+                        <Inputfield label="A= " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
+                        
+                       
                         <button onClick={onClick}>Rechnen</button>
                     </div>
                     <img src="https://mathekarten.vobs.at/fileadmin/template/bilder/merktexte/06geometrie2/beschriftung.PNG" alt="rechteckbeispiel" height={"300px"} width={"450px"} />

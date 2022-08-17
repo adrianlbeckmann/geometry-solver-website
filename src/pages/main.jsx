@@ -1,5 +1,4 @@
 import React from "react";
-import { NavButton } from "../components/NavButton";
 import { NavButtonList } from "../components/NavButtonList";
 
 const nav2d = [
