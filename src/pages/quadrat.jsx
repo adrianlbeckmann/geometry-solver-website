@@ -1,5 +1,7 @@
 import { useState } from "react"
-import Inputfieldlist from '../components/Inputfieldlist';
+import Inputfieldlist from '../components/Inputfieldlist'
+import { ShapesHeader } from "../components/ShapesHeader";
+import { ShapesBody } from "../components/ShapesBody";
 
 
 export const Quadrat = (props) => {
@@ -57,22 +59,16 @@ export const Quadrat = (props) => {
 
     return (
         <div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <button onClick={() => props.navigate("main")}> Home </button>
-                <div style={{ display: "flex" }}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Regular_quadrilateral.svg/800px-Regular_quadrilateral.svg.png" alt="quadrat" height={"50px"} width={"50px"} />
-                    <p style={{}}>2D</p>
-                </div>
-            </div>
-
-            <div style={{ display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <Inputfieldlist list={quadratInputfields} />
-
-                    <button onClick={onClick}>Rechnen</button>
-                </div>
-                <img src="http://dasprisma.weebly.com/uploads/2/7/0/0/27002005/7562718.png?457" alt="quadratbeispiel" height={"250px"} width={"450px"} />
-            </div>
+            <ShapesHeader
+            imgsrc="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Regular_quadrilateral.svg/800px-Regular_quadrilateral.svg.png"
+            alt="quadrat"
+            dimension="2D"
+            navigate={props.navigate}
+            />
+            <ShapesBody imgsrc="http://dasprisma.weebly.com/uploads/2/7/0/0/27002005/7562718.png?457" alt="quadratbeispiel" >
+            <Inputfieldlist list={quadratInputfields} />
+            <button onClick={onClick}>Rechnen</button>
+            </ShapesBody>
         </div>
     )
 }

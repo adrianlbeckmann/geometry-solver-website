@@ -1,5 +1,8 @@
 import { useState } from "react";
 import Inputfield from "../components/Inputfield";
+import { ShapesHeader } from "../components/ShapesHeader";
+import { ShapesBody } from "../components/ShapesBody";
+
 export const Dreieck = (props) => {
 
       // states
@@ -102,28 +105,22 @@ const handleChangeF = (event) => {
     
         return (
             <div>
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <button onClick={() => props.navigate("main")}> Home </button>
-                    <div style={{ display: "flex" }}>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Regular_triangle.svg/220px-Regular_triangle.svg.png" alt="dreieck" height={"50px"} width={"100px"} />
-                        <p style={{}}>2D</p>
-                    </div>
-                </div>
-    
-                <div style={{ display: "flex" }}>
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                        
+                <ShapesHeader
+                    imgsrc="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Regular_triangle.svg/220px-Regular_triangle.svg.png"
+                    alt="dreieck"
+                    dimension="2D"
+                    navigate={props.navigate}
+            />
+                
+                <ShapesBody imgsrc="https://www.biancahoegel.de/geometrie/ebene/bilder/Right_triangle_abchpq.svg.png" alt="dreieckbeispiel" >
                     <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
                     <Inputfield label="b = " key="quadratInputfields-0" id="nrinputqb" onChange={handleChangeB} value={side2} placeholder="" type="number"/>
                     <Inputfield label="c = " key="quadratInputfields-0" id="nrinputqc" onChange={handleChangeC} value={side3} placeholder="" type="number"/>
                     <Inputfield label="h = " key="quadratInputfields-0" id="nrinputqh" onChange={handleChangeH} value={side4} placeholder="" type="number"/>
                     <Inputfield label="U = " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
                     <Inputfield label="R = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
-                       
-                        <button onClick={onClick}>Rechnen</button>
-                    </div>
-                    <img src="https://www.biancahoegel.de/geometrie/ebene/bilder/Right_triangle_abchpq.svg.png" alt="dreieckbeispiel" height={"300px"} width={"450px"} />
-                </div>            
+                    <button onClick={onClick}>Rechnen</button>
+                </ShapesBody>      
             </div>
         
     )

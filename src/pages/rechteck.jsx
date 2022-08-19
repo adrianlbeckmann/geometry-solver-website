@@ -1,5 +1,8 @@
 import { useState } from "react";
 import Inputfield from "../components/Inputfield";
+import { ShapesHeader } from "../components/ShapesHeader";
+import { ShapesBody } from "../components/ShapesBody";
+
 export const Rechteck = (props) => {
 
       // states
@@ -90,27 +93,19 @@ const handleChangeF = (event) => {
     
         return (
             <div>
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <button onClick={() => props.navigate("main")}> Home </button>
-                    <div style={{ display: "flex" }}>
-                        <img src="https://d1g9li960vagp7.cloudfront.net/wp-content/uploads/2020/12/Rechteck-Herleitung-1-1024x637.png" alt="rechteck" height={"50px"} width={"100px"} />
-                        <p style={{}}>2D</p>
-                    </div>
-                </div>
-    
-                <div style={{ display: "flex" }}>
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                        
-                        <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
-                        <Inputfield label="b= " key="quadratInputfields-0" id="nrinputqb" onChange={handleChangeB} value={side2} placeholder="" type="number"/>
-                        <Inputfield label="U= " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
-                        <Inputfield label="A= " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
-                        
-                       
-                        <button onClick={onClick}>Rechnen</button>
-                    </div>
-                    <img src="https://mathekarten.vobs.at/fileadmin/template/bilder/merktexte/06geometrie2/beschriftung.PNG" alt="rechteckbeispiel" height={"300px"} width={"450px"} />
-                </div>            
+            <ShapesHeader
+            imgsrc="https://d1g9li960vagp7.cloudfront.net/wp-content/uploads/2020/12/Rechteck-Herleitung-1-1024x637.png"
+            alt="rechteck"
+            dimension="2D"
+            navigate={props.navigate}
+            />
+            <ShapesBody imgsrc="https://mathekarten.vobs.at/fileadmin/template/bilder/merktexte/06geometrie2/beschriftung.PNG" alt="rechteckbeispiel" >
+                <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
+                <Inputfield label="b= " key="quadratInputfields-0" id="nrinputqb" onChange={handleChangeB} value={side2} placeholder="" type="number"/>
+                <Inputfield label="U= " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
+                <Inputfield label="A= " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
+                <button onClick={onClick}>Rechnen</button>
+            </ShapesBody>
             </div>
         
     )

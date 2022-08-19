@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Inputfield from "../components/Inputfield";
+import { ShapesHeader } from "../components/ShapesHeader";
+import { ShapesBody } from "../components/ShapesBody";
 
 export const Kreis = (props) => {
     
@@ -48,25 +50,19 @@ const handleChangeF = (event) => {
 
     return (
         <div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <button onClick={() => props.navigate("main")}> Home </button>
-                <div style={{ display: "flex" }}>
-                    <img src="https://vorlagen-zum-ausdrucken.de/wp-content/uploads/2019/09/Kreis.jpg" alt="kreis" height={"50px"} width={"40px"} />
-                    <p style={{}}>2D</p>
-                </div>
-            </div>
-
-            <div style={{ display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    
-                    <Inputfield label="r = " key="quadratInputfields-0" id="nrinputqr" onChange={handleChangeR} value={radius} placeholder="" type="number"/>
-                    <Inputfield label="U = " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
-                    <Inputfield label="A = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
-                    
-                    <button onClick={onClick}>Rechnen</button>
-                </div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbAZAljcnxOsiZRWmFnsiVRyYdSlioNoZF63kD8rS0pMdGOahNzyAU-F2uCq8qdsfztnI&usqp=CAU" alt="kreisbeispiel" height={"300px"} width={"300px"} />
-            </div>            
+             <ShapesHeader
+            imgsrc="https://vorlagen-zum-ausdrucken.de/wp-content/uploads/2019/09/Kreis.jpg"
+            alt="kreis"
+            dimension="2D"
+            navigate={props.navigate}
+            />
+            
+            <ShapesBody imgsrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbAZAljcnxOsiZRWmFnsiVRyYdSlioNoZF63kD8rS0pMdGOahNzyAU-F2uCq8qdsfztnI&usqp=CAU" alt="kreisbeispiel" >
+                <Inputfield label="r = " key="quadratInputfields-0" id="nrinputqr" onChange={handleChangeR} value={radius} placeholder="" type="number"/>
+                <Inputfield label="U = " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
+                <Inputfield label="A = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
+                <button onClick={onClick}>Rechnen</button>
+            </ShapesBody>    
         </div>
     )
 }

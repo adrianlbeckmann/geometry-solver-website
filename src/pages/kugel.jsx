@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Inputfield from "../components/Inputfield";
 import { ShapesHeader } from "../components/ShapesHeader";
-
+import { ShapesBody } from "../components/ShapesBody";
 export const Kugel = (props) => {
     
     // states
@@ -57,28 +57,12 @@ const handleChangeV = (event) => {
             dimension="3D"
             navigate={props.navigate}
             />
-            <CooleComponente>
+            <ShapesBody imgsrc="https://www.online-rechner.net/assets/img/kugel.png" alt="kugelbeispiel" >
                 <Inputfield label="r = " key="quadratInputfields-0" id="nrinputqr" onChange={handleChangeR} value={radius} placeholder="" type="number"/>
                 <Inputfield label="O = " key="quadratInputfields-0" id="nrinputqs" onChange={handleChangeS} value={surface} placeholder="" type="number"/>
                 <Inputfield label="V = " key="quadratInputfields-0" id="nrinputqv" onChange={handleChangeV} value={volume} placeholder="" type="number"/>
                 <button onClick={onClick}>Rechnen</button>
-            </CooleComponente>
-            
-            
-            
-            
-            
-            <div style={{ display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                   
-                    <Inputfield label="r = " key="quadratInputfields-0" id="nrinputqr" onChange={handleChangeR} value={radius} placeholder="" type="number"/>
-                    <Inputfield label="O = " key="quadratInputfields-0" id="nrinputqs" onChange={handleChangeS} value={surface} placeholder="" type="number"/>
-                    <Inputfield label="V = " key="quadratInputfields-0" id="nrinputqv" onChange={handleChangeV} value={volume} placeholder="" type="number"/>
-
-                    <button onClick={onClick}>Rechnen</button>
-                </div>
-                <img src="https://www.online-rechner.net/assets/img/kugel.png" alt="kugelbeispiel" height={"300px"} width={"500px"} />
-            </div>            
+            </ShapesBody>
         </div>
     )
 }

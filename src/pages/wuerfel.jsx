@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Inputfield from "../components/Inputfield";
+import { ShapesHeader } from "../components/ShapesHeader";
+import { ShapesBody } from "../components/ShapesBody";
 
 export const Wuerfel = (props) => {
     
@@ -50,26 +52,18 @@ const handleChangeV = (event) => {
 
     return (
         <div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <button onClick={() => props.navigate("main")}> Home </button>
-                <div style={{ display: "flex" }}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Simpele_kubus.svg/1200px-Simpele_kubus.svg.png" alt="würfel" height={"50px"} width={"70px"} />
-                    <p style={{}}>3D</p>
-                </div>
-            </div>
-
-            <div style={{ display: "flex" }}>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    
+             <ShapesHeader
+            imgsrc="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Simpele_kubus.svg/1200px-Simpele_kubus.svg.png"
+            alt="würfel"
+            dimension="3D"
+            navigate={props.navigate}
+            />
+            <ShapesBody imgsrc="https://www.mathespass.at/klasse1/bilder/wuerfel.jpg" alt="würfelbeispiel">
                 <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
                 <Inputfield label="O = " key="quadratInputfields-0" id="nrinputqm" onChange={handleChangeS} value={surface} placeholder="" type="number"/>
                 <Inputfield label="V = " key="quadratInputfields-0" id="nrinputqv" onChange={handleChangeV} value={volume} placeholder="" type="number"/>
-
-                   
-                    <button onClick={onClick}>Rechnen</button>
-                </div>
-                <img src="https://www.mathespass.at/klasse1/bilder/wuerfel.jpg" alt="würfelbeispiel" height={"300px"} width={"300px"} />
-            </div>            
+                <button onClick={onClick}>Rechnen</button>
+            </ShapesBody>
         </div>
     )
 }
