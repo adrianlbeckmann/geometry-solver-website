@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Inputfield from "../components/Inputfield";
+import { ShapesHeader } from "../components/ShapesHeader";
 
 export const Kugel = (props) => {
     
@@ -49,40 +51,30 @@ const handleChangeV = (event) => {
 
     return (
         <div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <button onClick={() => props.navigate("main")}> Home </button>
-                <div style={{ display: "flex" }}>
-                    <img src="https://www.mathespass.at/klasse4/bilder/kugel.jpg" alt="kugel" height={"50px"} width={"40px"} />
-                    <p style={{}}>2D</p>
-                </div>
-            </div>
-
+            <ShapesHeader
+            imgsrc="https://www.mathespass.at/klasse4/bilder/kugel.jpg"
+            alt="kugel"
+            dimension="3D"
+            navigate={props.navigate}
+            />
+            <CooleComponente>
+                <Inputfield label="r = " key="quadratInputfields-0" id="nrinputqr" onChange={handleChangeR} value={radius} placeholder="" type="number"/>
+                <Inputfield label="O = " key="quadratInputfields-0" id="nrinputqs" onChange={handleChangeS} value={surface} placeholder="" type="number"/>
+                <Inputfield label="V = " key="quadratInputfields-0" id="nrinputqv" onChange={handleChangeV} value={volume} placeholder="" type="number"/>
+                <button onClick={onClick}>Rechnen</button>
+            </CooleComponente>
+            
+            
+            
+            
+            
             <div style={{ display: "flex" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqr">r = </label>
-                        <input 
-                        id="nrinputqr" 
-                        type="number" 
-                        onChange={handleChangeR}
-                        value={radius}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqu">U = </label>
-                        <input 
-                        id="nrinputqu" 
-                        type="number" 
-                        onChange={handleChangeS}
-                        value={surface}/>
-                    </div>
-                    <div style={{ display: "flex", margin: "20px" }}>
-                        <label htmlFor="nrinputqf">A = </label>
-                        <input 
-                        id="nrinputqf" 
-                        type="number" 
-                        onChange={handleChangeV}
-                        value={volume}/>
-                    </div>
+                   
+                    <Inputfield label="r = " key="quadratInputfields-0" id="nrinputqr" onChange={handleChangeR} value={radius} placeholder="" type="number"/>
+                    <Inputfield label="O = " key="quadratInputfields-0" id="nrinputqs" onChange={handleChangeS} value={surface} placeholder="" type="number"/>
+                    <Inputfield label="V = " key="quadratInputfields-0" id="nrinputqv" onChange={handleChangeV} value={volume} placeholder="" type="number"/>
+
                     <button onClick={onClick}>Rechnen</button>
                 </div>
                 <img src="https://www.online-rechner.net/assets/img/kugel.png" alt="kugelbeispiel" height={"300px"} width={"500px"} />

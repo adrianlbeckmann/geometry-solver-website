@@ -118,55 +118,8 @@ const handleChangeF = (event) => {
                     <Inputfield label="c = " key="quadratInputfields-0" id="nrinputqc" onChange={handleChangeC} value={side3} placeholder="" type="number"/>
                     <Inputfield label="h = " key="quadratInputfields-0" id="nrinputqh" onChange={handleChangeH} value={side4} placeholder="" type="number"/>
                     <Inputfield label="U = " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
-                    <Inputfield label="R = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={circumference} placeholder="" type="number"/>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqa">a = </label>
-                            <input 
-                            id="nrinputqa" 
-                            type="number" 
-                            onChange={handleChangeA}
-                            value={side}/>
-                        </div>
-                        <div style={{margin: "20px"}}>
-                        <label htmlFor="nrinputqb">b = </label>
-                            <input 
-                            id="nrinputqb" 
-                            type="number" 
-                            onChange={handleChangeB}
-                            value={side2}/>
-                        </div>
-                        <div style={{margin: "20px"}}>
-                        <label htmlFor="nrinputqc">c = </label>
-                            <input 
-                            id="nrinputqc" 
-                            type="number" 
-                            onChange={handleChangeC}
-                            value={side3}/>
-                        </div>
-                        <div style={{margin: "20px"}}>
-                        <label htmlFor="nrinputqh">h = </label>
-                            <input 
-                            id="nrinputqh" 
-                            type="number" 
-                            onChange={handleChangeH}
-                            value={side4}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqu">U = </label>
-                            <input 
-                            id="nrinputqu" 
-                            type="number" 
-                            onChange={handleChangeU}
-                            value={circumference}/>
-                        </div>
-                        <div style={{ display: "flex", margin: "20px" }}>
-                            <label htmlFor="nrinputqf">A = </label>
-                            <input 
-                            id="nrinputqf" 
-                            type="number" 
-                            onChange={handleChangeF}
-                            value={area}/>
-                        </div>
+                    <Inputfield label="R = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
+                       
                         <button onClick={onClick}>Rechnen</button>
                     </div>
                     <img src="https://www.biancahoegel.de/geometrie/ebene/bilder/Right_triangle_abchpq.svg.png" alt="dreieckbeispiel" height={"300px"} width={"450px"} />
