@@ -1,24 +1,26 @@
 import { useState } from "react"
-import Inputfield from "../components/Inputfield";
+import {Inputfield} from "../components/Inputfield";
 import { ShapesHeader } from "../components/ShapesHeader";
 import { ShapesBody } from "../components/ShapesBody";
+import React from "react";
+
 export const Kugel = (props) => {
     
     // states
-const [radius, setRadius] = useState(undefined);
-const [surface, setSurface] = useState(undefined);
-const [volume, setVolume] = useState(undefined);
+const [radius, setRadius] = useState<number | undefined>(undefined);
+const [surface, setSurface] = useState<number | undefined>(undefined);
+const [volume, setVolume] = useState<number | undefined>(undefined);
 
     // onclick
 const onClick = () => {
     console.log({radius}, {surface}, {volume})
-    if(radius !== undefined && radius !== ''){
+    if(radius !== undefined && radius){
         setSurface(4*Math.PI*(radius*radius));
         setVolume((4/3)*Math.PI*(radius*radius*radius));
         return;
     }
 
-    if(surface !== undefined && surface !== ''){
+    if(surface !== undefined && surface){
         console.log("surface");
         const r = Math.sqrt(surface/(4*Math.PI))
         setRadius(r);
@@ -26,7 +28,7 @@ const onClick = () => {
         return;
     }
 
-    if(volume !== undefined && volume !== ''){
+    if(volume !== undefined && volume){
         const r = Math.cbrt(volume/((4/3)*Math.PI))
     
         setRadius(r);

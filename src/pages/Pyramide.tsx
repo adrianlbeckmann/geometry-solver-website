@@ -1,29 +1,29 @@
-import { useState } from "react";
-import Inputfield from "../components/Inputfield";
+import React, { useState } from "react";
+import {Inputfield} from "../components/Inputfield";
 import { ShapesHeader } from "../components/ShapesHeader";
 import { ShapesBody } from "../components/ShapesBody";
 
-export const Dreieck = (props) => {
+export const Pyramide = (props) => {
 
-      // states
-const [side, setSide] = useState(undefined);
-const [circumference, setCircumference] = useState(undefined);
-const [area, setArea] = useState(undefined);
-const [side2, setSide2] = useState(undefined);
-const [side3, setSide3] = useState(undefined);
-const [side4, setSide4] = useState(undefined);
+    // states
+    const [side, setSide] = useState<number | undefined>(undefined);
+    const [circumference, setCircumference] = useState<number | undefined>(undefined);
+    const [area, setArea] = useState<number | undefined>(undefined);
+    const [side2, setSide2] = useState<number | undefined>(undefined);
+    const [side3, setSide3] = useState<number | undefined>(undefined);
+    const [side4, setSide4] = useState<number | undefined>(undefined);
 
     // onclick
-const onClick = () => {
-    const hasA = side !== undefined && side !== '';
-    const hasB = side2 !== undefined && side2 !== '';
-    const hasC = side3 !== undefined && side3 !== '';
-    const hasH = side4 !== undefined && side4 !== '';
-    const hasU = circumference !== undefined && circumference !== '';
-    const hasArea = area !== undefined && area !== '';
+    const onClick = () => {
+    const hasA = side !== undefined;
+    const hasB = side2 !== undefined;
+    const hasC = side3 !== undefined;
+    const hasH = side4 !== undefined;
+    const hasU = circumference !== undefined;
+    const hasArea = area !== undefined;
 
     if (hasA && hasB && hasC && hasH){
-        setCircumference(side+side2+side3);
+        setCircumference(side + side2 + side3);
         setArea((1/2)*side3*side4);
     }
    
@@ -43,37 +43,8 @@ const onClick = () => {
         setSide(area/side2);
         setCircumference((2*side2)+(2*(area/side2)));
     }
-    
-    console.error("a oder b angeben");
-    
-
-
-
-
-
-
     console.log({side}, {circumference}, {area})
-    if(hasA || hasB){
-        console.log("side");
-        setCircumference((2*side)+(2*side2));
-        setArea(side*side2);
-        return;
-    }
 
-    if(circumference !== undefined && circumference !== '' && (side !== undefined || side2 !== undefined)){
-        console.log("circumference");
-        setSide((circumference/2)-side2);
-        setArea((circumference/4)*(circumference/4));
-        return;
-    }
-
-    if(area !== undefined && area !== ''){
-        console.log("area");
-        const s = Math.sqrt(area);
-        setSide(s);
-        setCircumference(s*4);
-        return;
-    }
 }
 
 
@@ -106,13 +77,13 @@ const handleChangeF = (event) => {
         return (
             <div>
                 <ShapesHeader
-                    imgsrc="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Regular_triangle.svg/220px-Regular_triangle.svg.png"
-                    alt="dreieck"
-                    dimension="2D"
+                    imgsrc="https://schulgrafik.flgrafik.de/albums/userpics/10001/Pyramide_reg_4seit~0.jpg"
+                    alt="pyramide"
+                    dimension="3D"
                     navigate={props.navigate}
             />
                 
-                <ShapesBody imgsrc="https://www.biancahoegel.de/geometrie/ebene/bilder/Right_triangle_abchpq.svg.png" alt="dreieckbeispiel" >
+                <ShapesBody imgsrc="https://www.mein-lernen.at/images/stories/pyramide-rechteckig.png" >
                     <Inputfield label="a = " key="quadratInputfields-0" id="nrinputqa" onChange={handleChangeA} value={side} placeholder="" type="number"/>
                     <Inputfield label="b = " key="quadratInputfields-0" id="nrinputqb" onChange={handleChangeB} value={side2} placeholder="" type="number"/>
                     <Inputfield label="c = " key="quadratInputfields-0" id="nrinputqc" onChange={handleChangeC} value={side3} placeholder="" type="number"/>

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Main } from "./pages/main";
-import { Quadrat } from "./pages/quadrat";
-import { Rechteck } from "./pages/rechteck";
-import { Kreis } from "./pages/kreis";
-import { Dreieck } from "./pages/dreieck";
-import { Wuerfel } from "./pages/wuerfel";
-import { Quader } from "./pages/quader";
-import { Kugel } from "./pages/kugel";
-import { Pyramide } from "./pages/pyramide";
+import { Main } from "./pages/Main";
+import { Quadrat } from "./pages/Quadrat";
+import { Rechteck } from "./pages/Rechteck";
+import { Kreis } from "./pages/Kreis";
+import { Dreieck } from "./pages/Dreieck";
+import { Wuerfel } from "./pages/Wuerfel";
+import { Quader } from "./pages/Quader";
+import { Kugel } from "./pages/Kugel";
+import { Pyramide } from "./pages/Pyramide";
 
 export const App = () => {
   const [page, setPage] = useState("main");

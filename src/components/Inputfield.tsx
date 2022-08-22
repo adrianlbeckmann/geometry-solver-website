@@ -1,4 +1,6 @@
-const Inputfield = (props) => {
+import React from "react";
+
+export const Inputfield = (props) => {
     return (
      <div style={{display: "flex", margin: "20px"}}>
          <label
@@ -16,5 +18,3 @@ const Inputfield = (props) => {
      </div>
     )
 }
-
-export default Inputfield;

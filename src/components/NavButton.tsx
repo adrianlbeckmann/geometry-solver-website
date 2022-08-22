@@ -1,3 +1,5 @@
+import React from "react"
+
 export const NavButton = (props) => {
     return (
         <button onClick={() => props.navigate(props.name)} style={{margin:"20px"}}>

@@ -1,34 +1,34 @@
-import { useState } from "react"
-import Inputfieldlist from '../components/Inputfieldlist'
+import React, { useState } from "react"
+import { Inputfieldlist }  from '../components/Inputfieldlist'
 import { ShapesHeader } from "../components/ShapesHeader";
 import { ShapesBody } from "../components/ShapesBody";
 
 
 export const Quadrat = (props) => {
     // states
-    const [side, setSide] = useState(undefined);
-    const [circumference, setCircumference] = useState(undefined);
-    const [area, setArea] = useState(undefined);
+    const [side, setSide] = useState<number | undefined>(undefined);
+    const [circumference, setCircumference] = useState<number | undefined>(undefined);
+    const [area, setArea] = useState<number | undefined>(undefined);
 
 
     // onclick
     const onClick = () => {
         console.log({ side }, { circumference }, { area })
-        if (side !== undefined && side !== '') {
+        if (side !== undefined) {
             console.log("side");
             setCircumference(side * 4);
             setArea(side * side);
             return;
         }
 
-        if (circumference !== undefined && circumference !== '') {
+        if (circumference !== undefined) {
             console.log("circumference");
             setSide(circumference / 4);
             setArea((circumference / 4) * (circumference / 4));
             return;
         }
 
-        if (area !== undefined && area !== '') {
+        if (area !== undefined) {
             console.log("area");
             const s = Math.sqrt(area);
             setSide(s);
@@ -60,14 +60,14 @@ export const Quadrat = (props) => {
     return (
         <div>
             <ShapesHeader
-            imgsrc="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Regular_quadrilateral.svg/800px-Regular_quadrilateral.svg.png"
-            alt="quadrat"
-            dimension="2D"
-            navigate={props.navigate}
+                imgsrc="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Regular_quadrilateral.svg/800px-Regular_quadrilateral.svg.png"
+                alt="quadrat"
+                dimension="2D"
+                navigate={props.navigate}
             />
             <ShapesBody imgsrc="http://dasprisma.weebly.com/uploads/2/7/0/0/27002005/7562718.png?457" alt="quadratbeispiel" >
-            <Inputfieldlist list={quadratInputfields} />
-            <button onClick={onClick}>Rechnen</button>
+                <Inputfieldlist list={quadratInputfields} />
+                <button onClick={onClick}>Rechnen</button>
             </ShapesBody>
         </div>
     )

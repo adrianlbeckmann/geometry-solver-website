@@ -1,3 +1,5 @@
+import React from "react"
+
 export const ShapesBody = (props) => {
     return(
     <div style={{ display: "flex" }}>
