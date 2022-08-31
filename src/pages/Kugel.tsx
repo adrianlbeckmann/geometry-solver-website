@@ -3,8 +3,9 @@ import {Inputfield} from "../components/Inputfield";
 import { ShapesHeader } from "../components/ShapesHeader";
 import { ShapesBody } from "../components/ShapesBody";
 import React from "react";
+import { Navigatable } from "./Main";
 
-export const Kugel = (props) => {
+export const Kugel: React.FC<Navigatable> = (props) => {
     
     // states
 const [radius, setRadius] = useState<number | undefined>(undefined);

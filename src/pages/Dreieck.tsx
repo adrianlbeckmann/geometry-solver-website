@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import {Inputfield} from "../components/Inputfield";
 import { ShapesHeader } from "../components/ShapesHeader";
 import { ShapesBody } from "../components/ShapesBody";
+import { Navigatable } from "./Main";
 
-export const Dreieck = (props) => {
+export const Dreieck:React.FC<Navigatable> = (props) => {
 
     // states
     const [side, setSide] = useState<number | undefined>(undefined);
@@ -54,26 +55,23 @@ const handleChangeA = (event) => {
 }
 const handleChangeB = (event) => {
     console.log(event.target.value)
-    setSide(event.target.value)
+    setSide2(event.target.value)
 }
 const handleChangeC = (event) => {
     console.log(event.target.value)
-    setSide(event.target.value)
+    setSide3(event.target.value)
 }
 const handleChangeH = (event) => {
     console.log(event.target.value)
-    setSide(event.target.value)
+    setSide4(event.target.value)
 }
 const handleChangeU = (event) => {
     setCircumference(event.target.value)
 }
-
 const handleChangeF = (event) => {
     setArea(event.target.value)
 }
 
-
-    
         return (
             <div>
                 <ShapesHeader
@@ -89,10 +87,9 @@ const handleChangeF = (event) => {
                     <Inputfield label="c = " key="quadratInputfields-0" id="nrinputqc" onChange={handleChangeC} value={side3} placeholder="" type="number"/>
                     <Inputfield label="h = " key="quadratInputfields-0" id="nrinputqh" onChange={handleChangeH} value={side4} placeholder="" type="number"/>
                     <Inputfield label="U = " key="quadratInputfields-0" id="nrinputqu" onChange={handleChangeU} value={circumference} placeholder="" type="number"/>
-                    <Inputfield label="R = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
+                    <Inputfield label="F = " key="quadratInputfields-0" id="nrinputqf" onChange={handleChangeF} value={area} placeholder="" type="number"/>
                     <button onClick={onClick}>Rechnen</button>
                 </ShapesBody>      
             </div>
-        
     )
 }

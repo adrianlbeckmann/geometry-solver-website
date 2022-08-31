@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Inputfield } from "../components/Inputfield";
-export const Quader = (props) => {
+import { Navigatable } from "./Main";
+export const Quader:React.FC<Navigatable> = (props) => {
 
     // states
     const [side, setSide] = useState(undefined);

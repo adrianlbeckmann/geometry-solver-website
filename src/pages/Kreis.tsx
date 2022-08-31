@@ -2,8 +2,9 @@ import React, { useState } from "react"
 import { Inputfield } from "../components/Inputfield";
 import { ShapesHeader } from "../components/ShapesHeader";
 import { ShapesBody } from "../components/ShapesBody";
+import { Navigatable } from "./Main";
 
-export const Kreis = (props) => {
+export const Kreis: React.FC<Navigatable> = (props) => {
 
     // states
     const [radius, setRadius] = useState(undefined);
